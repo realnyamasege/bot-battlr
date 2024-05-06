@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
-// import BotSpecs from "./BotSpecs";
 
 function BotsPage() {
   //start here with your code for step one
-  // const [bots, setBots] = useState([]);
+  const [bots, setBots] = useState([]);
   const [botsArmy, setBotsArmy] = useState([]);
   const [BotSpecs, setBotSpecs] = useState({});
   const [collectionVisible, setCollectionVisible] = useState(true);
@@ -18,27 +17,21 @@ function BotsPage() {
       .then((bots) => {
         setBotCollection(bots);
         setFilteredCollection(bots);
+        setBots(bots);
       });
   }, []);
   function addToArmy(bot) {
-    const newCollection = filteredCollection.filter(
-      (card) => card.bot_class !== bot.bot_class
-    );
-    setFilteredCollection(newCollection);
-    setBotsArmy([...botsArmy, bot]);
-    setCollectionVisible(true);
+    if (botsArmy.includes(bot)) {
+      console.log("bot already added");
+    } else {
+      setBotsArmy([...botsArmy, bot]);
+    }
   }
 
   function deleteFromArmy(bot) {
     const newArmy = botsArmy.filter((card) => card.id !== bot.id);
-    const armyClasses = newArmy.map((bot) => bot.bot_class);
-    const newCollection = BotCollection.filter((bot) =>
-      console.log("Filter:", armyClasses.includes(bot.bot_class))
-    );
-    // console.log("newCollection", newCollection);
 
     setBotsArmy(newArmy);
-    setFilteredCollection(newCollection);
   }
 
   function removeBotPermanently(bot) {
@@ -79,9 +72,9 @@ function BotsPage() {
 
       {collectionVisible ? (
         <BotCollection
-          // bots={bots}
-          // setBotsArmy={setBotsArmy}
-          botCollection={filteredCollection}
+          bots={bots}
+          setBotsArmy={addToArmy}
+          // botCollection={filteredCollection}
           action={displayBotSpecs}
           deleteCard={removeBotPermanently}
         />
