@@ -12,7 +12,7 @@ function BotsPage() {
   const [botCollection, setBotCollection] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8002/bots")
+    fetch("https://bot-battlr-ct4d.onrender.com/bots")
       .then((res) => res.json())
       .then((bots) => {
         setBotCollection(bots);
@@ -45,7 +45,7 @@ function BotsPage() {
     setFilteredCollection(newFilteredCollection);
     setBotsArmy(newArmy);
 
-    fetch(`http://localhost:8002/bots/${bot.id}`, {
+    fetch(`https://bot-battlr-ct4d.onrender.com/bots/${bot.id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -74,7 +74,6 @@ function BotsPage() {
         <BotCollection
           bots={bots}
           setBotsArmy={addToArmy}
-          // botCollection={filteredCollection}
           action={displayBotSpecs}
           removeBotPermanently={removeBotPermanently}
         />

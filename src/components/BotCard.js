@@ -13,9 +13,7 @@ function BotCard({ bot, action, removeBotPermanently, enlist }) {
   function handleAddArmy(e) {
     action(bot);
   }
-  // function handleDeleteArmy(e) {
-  //   removeBotPermanently(bot);
-  // }
+
   return (
     <div className="ui column">
       <div className="ui card" key={bot.id} onClick={() => handleAddArmy[bot]}>

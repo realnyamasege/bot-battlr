@@ -5,7 +5,7 @@ function BotCollection({
   bots,
   setBotsArmy,
   action,
-  // deleteCard,
+
   removeBotPermanently,
 }) {
   // Your code here
@@ -19,7 +19,6 @@ function BotCollection({
           bots.map((bot) => {
             return (
               <BotCard
-                // deleteCard={deleteCard}
                 key={bot.id}
                 bot={bot}
                 action={action}
