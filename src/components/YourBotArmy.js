@@ -1,7 +1,7 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function YourBotArmy({ bots, action, deleteCard }) {
+function YourBotArmy({ bots, action, deleteCard, removeBotPermanently }) {
   //your bot army code here...
 
   return (
@@ -17,6 +17,7 @@ function YourBotArmy({ bots, action, deleteCard }) {
                   bot={bot}
                   action={() => action(bot)}
                   deleteCard={deleteCard}
+                  removeBotPermanently={removeBotPermanently}
                 />
               );
             })}

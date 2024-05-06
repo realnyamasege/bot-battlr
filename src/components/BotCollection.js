@@ -1,7 +1,13 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function BotCollection({ bots, setBotsArmy, action, deleteCard }) {
+function BotCollection({
+  bots,
+  setBotsArmy,
+  action,
+  // deleteCard,
+  removeBotPermanently,
+}) {
   // Your code here
 
   return (
@@ -13,11 +19,12 @@ function BotCollection({ bots, setBotsArmy, action, deleteCard }) {
           bots.map((bot) => {
             return (
               <BotCard
-                deleteCard={deleteCard}
+                // deleteCard={deleteCard}
                 key={bot.id}
                 bot={bot}
                 action={action}
                 enlist={() => setBotsArmy(bot)}
+                removeBotPermanently={removeBotPermanently}
               />
             );
           })}

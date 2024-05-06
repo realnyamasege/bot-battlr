@@ -67,7 +67,7 @@ function BotsPage() {
       <YourBotArmy
         bots={botsArmy}
         action={deleteFromArmy}
-        deleteCard={removeBotPermanently}
+        removeBotPermanently={removeBotPermanently}
       />
 
       {collectionVisible ? (
@@ -76,7 +76,7 @@ function BotsPage() {
           setBotsArmy={addToArmy}
           // botCollection={filteredCollection}
           action={displayBotSpecs}
-          deleteCard={removeBotPermanently}
+          removeBotPermanently={removeBotPermanently}
         />
       ) : (
         <BotSpecs

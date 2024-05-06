@@ -9,13 +9,13 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, action, deleteCard, enlist }) {
+function BotCard({ bot, action, removeBotPermanently, enlist }) {
   function handleAddArmy(e) {
     action(bot);
   }
-  function handleDeleteArmy(e) {
-    deleteCard(bot);
-  }
+  // function handleDeleteArmy(e) {
+  //   removeBotPermanently(bot);
+  // }
   return (
     <div className="ui column">
       <div className="ui card" key={bot.id} onClick={() => handleAddArmy[bot]}>
@@ -50,7 +50,7 @@ function BotCard({ bot, action, deleteCard, enlist }) {
               <button
                 className="ui mini red button"
                 onClick={
-                  () => handleDeleteArmy
+                  () => removeBotPermanently(bot)
                   // console.log("add code to connect event listener")
                 }
               >
